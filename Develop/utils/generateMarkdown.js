@@ -58,35 +58,35 @@ const renderLicenseSection = license => {
 }
 
 // TODO: Create a function to generate markdown for README
-const generateMarkdown = data => {
+function generateMarkdown(data) {
   return `
   # ${data.title}
 
-  ## Description
-  ${data.description}
-
-  ![badge](https://shields.io/badge/license-${licenseOption})-brightorange)
+  ## licensing:
+  ![badge](https://shields.io/badge/license-${data.license})-brightorange)
     For more information on badges see [shields.io](https://shields.io)
 
-  ## Installation
+  ## Description:
+  ${data.description}
+
+  ## Installation:
   ${data.installation}
 
-  ## Usage
+  ## Usage:
   ${data.usage}
   
-  ![example](assets/images/screenshot.png)
-
-
-  ## License
+  ## License:
   ${data.license}
 
-  ## Contribution
+  ## Contribution:
   ${data.contribution}
 
-  ## Testing
+  ## Testing:
   ${data.testing}
 
-
+  ## More information:
+  - Github: [${data.github}](https://github.com/${data.github})
+  - Email: ${data.email}
 `;
 }
 
