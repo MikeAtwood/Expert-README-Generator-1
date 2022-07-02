@@ -35,19 +35,6 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'contents',
-            message: 'Table of Contents',
-            validate: contentsInput => {
-                if (contentsInput) {
-                    return true;
-                } else {
-                    console.log('Please enter table of contents of Project');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
             name: 'installation',
             message: 'How do you instal your project? (Required)',
             validate: installationInput => {
@@ -76,6 +63,7 @@ const questions = () => {
             type: 'checkbox',
             name: 'License',
             message: 'Choose a License (Required)',
+            choices: ['MIT', 'GNU'],
             validate: licenseInput => {
                 if (licenseInput) {
                     return true;

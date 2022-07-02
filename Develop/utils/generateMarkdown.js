@@ -4,7 +4,7 @@ const fs = require('fs');
 const renderLicenseBadge = license => {
   return new Promise((resolve, reject) => {
     fs.renderLicenseBadge('./utils/renderLicenseBadge', license, err => {
-    // if theres am errpr, reject the promise and send the error to promise's `.catch()` method
+    // if theres am error, reject the promise and send the error to promise's `.catch()` method
     if (err) {
       reject(err);
       // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
@@ -59,7 +59,34 @@ const renderLicenseSection = license => {
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = data => {
-  return `# ${data.title}
+  return `
+  # ${data.title}
+
+  ## Description
+  ${data.description}
+
+  ![badge](https://shields.io/badge/license-${licenseOption})-brightorange)
+    For more information on badges see [shields.io](https://shields.io)
+
+  ## Installation
+  ${data.installation}
+
+  ## Usage
+  ${data.usage}
+  
+  ![example](assets/images/screenshot.png)
+
+
+  ## License
+  ${data.license}
+
+  ## Contribution
+  ${data.contribution}
+
+  ## Testing
+  ${data.testing}
+
+
 `;
 }
 
